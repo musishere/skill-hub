@@ -1,0 +1,53 @@
+{
+  "name": "skillhub-monolithic",
+  "version": "1.0.0",
+  "description": "Monolithic LMS application with backend, frontend, and admin panel",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "admin-panel"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:admin\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:admin": "cd admin-panel && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend && npm run build:admin",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:admin": "cd admin-panel && npm run build",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\" \"npm run start:admin\"",
+    "start:backend": "cd backend && npm run start",
+    "start:frontend": "cd frontend && npm run start",
+    "start:admin": "cd admin-panel && npm run start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../admin-panel && npm install",
+    "lint": "npm run lint:backend && npm run lint:frontend && npm run lint:admin",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:admin": "cd admin-panel && npm run lint",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm run test",
+    "test:frontend": "cd frontend && npm run test",
+    "db:push": "cd backend && npm run db:push",
+    "db:generate": "cd backend && npm run db:generate"
+  },
+  "keywords": [
+    "lms",
+    "education",
+    "monolithic",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
+  }
+}
